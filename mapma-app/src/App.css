@@ -1,0 +1,117 @@
+/* MapMA.css */
+.App {
+  background-color: none;
+  position: relative;
+  width: 100vw;
+  height: 120vh;
+  overflow: hidden;
+  display: flex;
+}
+
+.mapma-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header Styles */
+.header-background {
+  width: 448px;
+  height: 193px;
+  left: 785px;
+  top: 342px;
+  position: absolute;
+  background: #2E62FF;
+  border: 1px #2E62FF solid;
+}
+
+.header-title {
+  width: 389px;
+  height: 84px;
+  left: 808px;
+  top: 354px;
+  position: absolute;
+  text-align: center;
+  color: #EDF6FF;
+  font-size: 80px;
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-weight: 400;
+  word-wrap: break-word;
+  margin: 0;
+}
+
+.header-description {
+  width: 397px;
+  height: 67px;
+  left: 804px;
+  top: 461px;
+  position: absolute;
+  text-align: center;
+  color: #EDF6FF;
+  font-size: 18px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+  margin: 0;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Form Field Styles */
+.form-field {
+  position: absolute;
+  left: 1004px;
+}
+
+.field-background {
+  width: 180px;
+  height: 49px;
+  background: #EDF6FF;
+  border: 1px #2E62FF solid;
+}
+
+.field-background.filled {
+  width: 181px;
+  background: #2E62FF;
+}
+
+.field-label {
+  width: 156px;
+  height: 27px;
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  text-align: center;
+  color: #2E62FF;
+  font-size: 24px;
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.field-label.light {
+  color: #EDF6FF;
+}
+
+/* Individual Field Positions */
+.map-field {
+  top: 549px;
+}
+
+.date-field {
+  top: 610px;
+}
+
+.title-field {
+  top: 674px;
+}
+
+.artist-field {
+  top: 735px;
+}
