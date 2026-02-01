@@ -52,7 +52,7 @@ export default function ArtCard({ art, onClose, onClick }) {
         {/* Image section */}
         <div className="art-card-image">
           <img 
-            src={`/images/${art}.svg`} 
+            src={`images/${art}.svg`} 
             alt={artworkImage.title}
           />
         </div>

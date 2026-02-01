@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 export default function ArtImage({ art, style, onClick }) {
   return (
     <motion.img
-      src={"/images/" + art.num + ".svg"}
+      src={"images/" + art.num + ".svg"}
       alt={art.title}
       style={style}
 
