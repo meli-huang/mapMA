@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import '../styles/ArtCard.css';
 import artworks from '../data/artworks.json';
+import khanlinks from '../data/khanlinks.json';
 
 export default function ArtCard({ art, onClose, onClick }) {
 
@@ -65,7 +66,10 @@ export default function ArtCard({ art, onClose, onClick }) {
           <p className="art-card-info">{artworkImage.date}</p>
           <p className="art-card-info">{artworkImage.medium}</p>
           <p className="art-card-info">{artworkImage.location}</p>
-          <motion.a className="art-card-link" href={"https://www.khanacademy.org/humanities/ap-art-history/global-contemporary-apah"}>Learn more.</motion.a>
+          <motion.a className="art-card-link" 
+            href={`${khanlinks[art].link}`} // gets the specific khan academy link!
+            target="_blank"
+          >Learn more.</motion.a>
         </div>
 
         {/* Navigation buttons */}

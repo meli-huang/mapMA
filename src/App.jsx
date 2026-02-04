@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion';
-import './App.css'
+import { motion, LayoutGroup, AnimatePresence } from 'framer-motion';
 
-// import data 
-import artworks from './data/artworks.json';
-import style_positions from './data/style_positions.json';
+import './App.css';
 
 // import components
-import ArtImage from './components/ArtImage';
-import ArtCard from './components/ArtCard';
 import Background from './components/Background';
+import LayoutDate from './components/LayoutDate';
+import LayoutHome from './components/LayoutHome';
+import LayoutArtist from './components/LayoutArtist';
+import LayoutTitle from './components/LayoutTitle';
+import ArtCard from './components/ArtCard';
 import FormFields from './components/FormFields';
 
 const BASE_WIDTH = 1512;
@@ -34,7 +34,15 @@ function App() {
     return () => window.removeEventListener("resize", resize);
   }, []);
 
+  // state for entering layouts
+  const [layoutMode, setLayoutMode] = useState("home");
 
+  // // clear any open ArtCard when returning to the home layout
+  // useEffect(() => {
+  //   if (layoutMode === "home") {
+  //     setSelectedArt(null);
+  //   }
+  // }, [layoutMode]);
 
   return (
     <div className="App">
@@ -43,57 +51,38 @@ function App() {
       <Background />
 
       {/* transforms to be resized properly */}
-      <div className="mapma-container"
-        style={{ 
-          transform: `scale(${scale})`, 
-          transformOrigin: 'top left',
-        }}>
-        
+        <div className="mapma-container"
+            style={{ 
+            transform: `scale(${scale})`, 
+            transformOrigin: 'top left',
+            }}>
 
-        {/* Header of mapMA */}
-        <motion.button
-          transition={{
-            duration: 0.2,
-            repeatType: "reverse",
-            ease: "easeInOut"
-          }}
-          whileHover={{
-            y: -8,
-            x: -8,
-            boxShadow: "8px 8px 0px #2E62FF",
-          }}
-        >
-          <div className="header-background"/>
-          <h1 className="header-title">✶ mapMA</h1>
-          <p className="header-description">
-            Admire, visualize, and study the AP Art History unit on Modern Art.
-          </p>
-        </motion.button>
+          <LayoutGroup>
+            <AnimatePresence mode="sync">
+              {layoutMode === "home" && <LayoutHome 
+                setLayoutMode={setLayoutMode}
+                setSelectedArt={setSelectedArt}/>}
+              {layoutMode === "date" && <LayoutDate 
+                setLayoutMode={setLayoutMode}
+                setSelectedArt={setSelectedArt} />}
+              {layoutMode === "title" && <LayoutTitle 
+                setLayoutMode={setLayoutMode}
+                setSelectedArt={setSelectedArt} />}
+              {layoutMode === "artist" && <LayoutArtist 
+                setLayoutMode={setLayoutMode}
+                setSelectedArt={setSelectedArt} />}
+            </AnimatePresence>
+          </LayoutGroup>
+        </div>
 
-
-        {/* Form Fields */}
-        <FormFields />
-
-
-        {/* Art pieces as ArtworkImage objects */}
-        {artworks.map((art) => (
-          <ArtImage
-            art={art}
-            style={style_positions[art.num]}
-            onClick={() => setSelectedArt(art.num)}
+        {/* Artwork Card Modal, without resizing */}
+        {selectedArt && (
+          <ArtCard 
+            art={selectedArt} 
+            onClose={() => setSelectedArt(null)}
+            onClick={(artNum) => setSelectedArt(artNum)}
           />
-        ))}
-      </div>
-
-
-      {/* Artwork Card Modal, without resizing */}
-      {selectedArt && (
-        <ArtCard 
-          art={selectedArt} 
-          onClose={() => setSelectedArt(null)}
-          onClick={(artNum) => setSelectedArt(artNum)}
-        />
-      )}
+        )}
 
     </div>
   )

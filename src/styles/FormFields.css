@@ -1,0 +1,77 @@
+/* Form Field Styles */
+.form-field {
+  position: absolute;
+}
+
+.field-background {
+  width: 180px;
+  height: 49px;
+  background: #EDF6FF;
+  border: 1px #2E62FF solid;
+}
+
+.field-background.filled {
+  background: #2E62FF;
+}
+
+.field-label {
+  width: 156px;
+  height: 27px;
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  text-align: center;
+  color: #2E62FF;
+  font-size: 24px;
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.field-label.light {
+  color: #EDF6FF;
+}
+
+/* Positions on the Home page */
+.map-home {
+  left: 1004px;
+  top: 549px;
+}
+
+.date-home {
+  left: 1004px;
+  top: 610px;
+}
+
+.title-home {
+  left: 1004px;
+  top: 674px;
+}
+
+.artist-home {
+  left: 1004px;
+  top: 735px;
+}
+
+
+/* Positions on the ANY non-home page */
+.map-non-home {
+  left: 396px;
+  top: 850px;
+}
+
+.date-non-home {
+  left: 577px;
+  top: 850px;
+}
+
+.title-non-home {
+  left: 756px;
+  top: 850px;
+}
+
+.artist-non-home {
+  left: 936px;
+  top: 850px;
+}

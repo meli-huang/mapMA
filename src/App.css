@@ -49,7 +49,7 @@
   text-align: center;
   color: #EDF6FF;
   font-size: 18px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Roboto Mono', monospace;
   font-weight: 400;
   word-wrap: break-word;
   margin: 0;
@@ -62,56 +62,32 @@ button {
   cursor: pointer;
 }
 
-/* Form Field Styles */
-.form-field {
-  position: absolute;
-  left: 1004px;
+/* For each layout page! */
+.layout-page {
+  margin-top: 3vh;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
 }
 
-.field-background {
-  width: 180px;
-  height: 49px;
-  background: #EDF6FF;
-  border: 1px #2E62FF solid;
+/* Row Carousel */
+.rowViewport {
+  /* overflow: hidden; */
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  justify-content: center;
 }
 
-.field-background.filled {
-  width: 181px;
-  background: #2E62FF;
+.rowTrack {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  /* will-change: transform; */
 }
 
-.field-label {
-  width: 156px;
-  height: 27px;
-  position: absolute;
-  left: 12px;
-  top: 10px;
-  text-align: center;
-  color: #2E62FF;
-  font-size: 24px;
-  font-family: 'Libre Baskerville', serif;
-  font-style: italic;
-  font-weight: 400;
-  word-wrap: break-word;
-}
-
-.field-label.light {
-  color: #EDF6FF;
-}
-
-/* Individual Field Positions */
-.map-field {
-  top: 549px;
-}
-
-.date-field {
-  top: 610px;
-}
-
-.title-field {
-  top: 674px;
-}
-
-.artist-field {
-  top: 735px;
+@keyframes scroll {
+  from { transform: translateX(0%); }
+  to { transform: translateX(-100%); }
 }

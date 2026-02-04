@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 
-export default function ArtImage({ art, style, onClick }) {
+export default function ArtImage({ art, style, onClick}) {
   return (
     <motion.img
+      layoutId={`art-${art.num}`}
       src={"images/" + art.num + ".svg"}
       alt={art.title}
       style={style}
@@ -17,7 +18,7 @@ export default function ArtImage({ art, style, onClick }) {
       whileHover={{
         y: -8,
         x: -8,
-        filter: "saturate(1.2 brightness(1.2)",
+        filter: "saturate(1.1) brightness(1.1)",
         boxShadow: "8px 8px 0px #2E62FF",
       }}
       initial={{
